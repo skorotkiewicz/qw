@@ -9,7 +9,7 @@ A high-performance media scrambler that transforms video and audio into a secure
 Requires **FFmpeg**.
 
 ```bash
-git clone https://github.com/your-username/qw.git
+git clone https://github.com/skorotkiewicz/qw.git
 cd qw
 cargo build --release
 ```
@@ -19,7 +19,7 @@ cargo build --release
 ### 🧩 Flip
 The same command toggles between original and scrambled states.
 ```bash
-./target/release/qw -i video.mp4 -o output.mp4 --seed "your-secret"
+./target/release/qw -i video.mp4 -o output.mp4 --seed "your-secret" --block-size 16
 ```
 
 ## Features
