@@ -167,11 +167,9 @@ fn process_media(
             "-preset",
             "ultrafast",
             "-crf",
-            "22",
+            "0", // lossless video — no quality loss on re-encode
             "-c:a",
-            "aac",
-            "-b:a",
-            "128k",
+            "flac", // lossless audio — no quality loss on re-encode
             output_path.to_str().unwrap(),
         ])
         .stdin(Stdio::piped())
