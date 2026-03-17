@@ -8,7 +8,7 @@ use rand_chacha::rand_core::SeedableRng;
 use sha2::{Digest, Sha256};
 use std::fs::File;
 use std::io::{BufReader, BufWriter, Read, Write};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 use std::thread;
 
@@ -43,7 +43,7 @@ fn main() -> Result<()> {
     process_media(&cli.input, &cli.output, &cli.seed, cli.block_size)
 }
 
-fn get_media_info(path: &PathBuf) -> Result<(usize, usize, u64, u32, u32)> {
+fn get_media_info(path: &Path) -> Result<(usize, usize, u64, u32, u32)> {
     let v_output = Command::new("ffprobe")
         .args([
             "-v",
@@ -85,7 +85,7 @@ fn get_media_info(path: &PathBuf) -> Result<(usize, usize, u64, u32, u32)> {
         let as_str = String::from_utf8(ao.stdout).unwrap_or_default();
         let ap = as_str.trim().split('x').collect::<Vec<_>>();
         (
-            ap.get(0).and_then(|&s| s.parse().ok()).unwrap_or(48000),
+            ap.first().and_then(|&s| s.parse().ok()).unwrap_or(48000),
             ap.get(1).and_then(|&s| s.parse().ok()).unwrap_or(2),
         )
     } else {
@@ -95,8 +95,8 @@ fn get_media_info(path: &PathBuf) -> Result<(usize, usize, u64, u32, u32)> {
 }
 
 fn process_media(
-    input_path: &PathBuf,
-    output_path: &PathBuf,
+    input_path: &Path,
+    output_path: &Path,
     seed_str: &str,
     block_size: usize,
 ) -> Result<()> {
