@@ -4,6 +4,12 @@ A high-performance media scrambler that transforms video and audio into a secure
 
 `qw` uses symmetric spatial grid shuffling and audio block scrambling. Because the operation is self-inverting (based on mathematical involutions), you use the same command both to scramble and to restore your media.
 
+## 📼 Demo
+
+| Scrambled | Restored |
+| :---: | :---: |
+| ![Scrambled](assets/scrambled.mp4) | ![Restored](assets/restored.mp4) |
+
 ## Installation
 
 Requires **FFmpeg** and **FFprobe** installed on your system.
