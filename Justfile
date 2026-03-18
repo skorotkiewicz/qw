@@ -20,6 +20,7 @@ lint:
 # Format code
 fmt:
     cargo fmt
+    cargo shear --fix # cargo install cargo-shear
 
 # Clean build artifacts and temporary muxing files
 clean:
