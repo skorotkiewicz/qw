@@ -11,7 +11,10 @@ Requires **FFmpeg** and **FFprobe** installed on your system.
 ```bash
 git clone https://github.com/skorotkiewicz/qw.git
 cd qw
+# Use cargo:
 cargo build --release
+# Or use just:
+just build
 ```
 
 ## Usage
