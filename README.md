@@ -8,7 +8,8 @@ A high-performance media scrambler that transforms video and audio into a secure
 
 | Scrambled | Restored |
 | :---: | :---: |
-| ![Scrambled](assets/scrambled.mp4) | ![Restored](assets/restored.mp4) |
+| <video width="320" height="240" controls><source src="assets/scrambled.mp4" type="video/mp4"></video> | <video width="320" height="240" controls><source src="assets/restored.mp4" type="video/mp4"></video> |
+
 
 ## Installation
 
